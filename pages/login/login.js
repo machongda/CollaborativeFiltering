@@ -116,12 +116,13 @@ Page({
 
 
         } else {
+          
           var userInfo;
           userInfo = res.detail.userInfo;
           userInfo.isLogin = that.data.isLogin;
           userInfo.openid = that.data.openid;
           userInfo.session_key = that.data.session_key;
-          userInfo.lebels = ['文学', '名著', '历史', '国学', '古典文学'];
+          userInfo.lebels = "文学,名著,历史,国学,古典文学";
           if (userInfo.gender == 1)
             userInfo.gender = "男";
           else if (userInfo.gender == 2)
@@ -144,6 +145,7 @@ Page({
             lebels: userInfo.lebels,
 
           }).then((res) => {
+            app.globalData.refreshFlags[0] = true;
             app.globalData.userInfo = userInfo;
             app.globalData.isLogin = true;
             wx.setStorage({

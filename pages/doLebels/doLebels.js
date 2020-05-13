@@ -83,7 +83,7 @@ Page({
       var lebelsString = "";
       for (var i = 0; i < lebels.length - 1; i++)
         lebelsString += lebels[i] + ",";
-
+    
       lebelsString += lebels[lebels.length - 1];
       if (lebelsString.length>150){
         wx.showModal({
@@ -103,7 +103,11 @@ Page({
    return;
       }
 
-
+      common.Toast.loading({
+        mask: true,
+        message: '添加用户标签中...',
+        duration: 2
+      });
 
       common.request("user/updateUserLebels", {
         lebels: lebelsString,
@@ -113,6 +117,7 @@ Page({
         try {
           const userInfo = wx.getStorageSync('userInfo') || {};
           userInfo.lebels = lebelsString;
+          app.globalData.userInfo.lebels = lebelsString;
           wx.setStorage({
             key: "userInfo",
             data: userInfo,
