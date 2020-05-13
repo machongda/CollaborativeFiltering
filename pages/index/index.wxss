@@ -1,21 +1,24 @@
-/**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.left{
+width: 40%;
+
+
+}
+.right{
+width: 70%;
+display: flex;
+flex-direction: column;
+margin-right: 40rpx;
+font-size: 30rpx;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.coverPath{
+width:250rpx;
+height: 400rpx;
+margin: 15rpx;
+box-sizing: border-box;
 }
-
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 200px;
+.bookname{
+font-size: 40rpx;
+text-align: center;
+font-weight:bold;
 }

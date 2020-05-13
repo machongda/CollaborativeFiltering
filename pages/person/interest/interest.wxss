@@ -1,0 +1,11 @@
+/* pages/person/interest/interest.wxss */
+.lebelButton{
+display: inline-block;
+font-size: 24rpx;
+margin-right: 20rpx;
+
+}
+.select{
+background-color: #33CCFF;
+
+}

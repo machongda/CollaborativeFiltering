@@ -1,0 +1,55 @@
+<view style="display:flex;">
+  <view class="left">
+    <image src="{{book.coverPath}}" class="coverPath" bindtap='previewImg'></image>
+  </view>
+  <view class="right">
+    <view class="bookname">{{book.name}}
+      <van-button bind:click="copy" type="primary" data-text="{{book.name}}" style="margin-left:10rpx;font-size:14px" size="mini">复制</van-button>
+    </view>
+    <view class="">作者：{{book.authorName}}</view>
+    <view class="">出版社：{{book.publishingHouse}}</view>
+    <view class="">出版年：{{book.publishingYear}}</view>
+    <view class="">ISBN:{{book.isbn}}
+      <van-button bind:click="copy" type="primary" data-text="{{book.isbn}}" style="margin-left:10rpx;margin-top:10rpx;font-size:14px" size="mini">复制</van-button>
+    </view>
+    <view class="">网友评分:{{book.score}}</view>
+    <view class="">评价人数:{{book.pointNumber}}</view>
+    <view class="">分类:{{book.labels}}</view>
+    <!-- <van-button bind:click="mark" type="primary" data-index="{{index}}" style="margin-left:10rpx;margin-top:10rpx;" size="small" disabled="{{maskFlag[index]}}">标记为已读</van-button> -->
+  </view>
+</view>
+<view style="display:flex;justify-content: center; align-items: center;">
+<van-button icon="like-o" bindtap="collect" size="mini" type="default" wx:if="{{!collect}}">
+
+  </van-button>
+  <van-button icon="like-o" size="mini" bindtap="collect" type="default" color="#FF9933" wx:if="{{collect}}">
+  
+</van-button>
+
+</view>
+
+
+<view class="divLine"></view>
+
+
+<van-collapse value="{{ activeNames }}" bind:change="onChange">
+  <van-collapse-item title="简介" name="1">
+    <text>{{book.briefIntroduction}}</text>
+  </van-collapse-item>
+  <van-collapse-item title="网友评论" name="2">
+
+    <view wx:for="{{comment}}" wx:for-index="index" wx:for-item='item' wx:key="cid">
+      <view>
+        <view style="color:#000">
+          <text space="emsp">  </text>{{item.nickname}}:
+          <text>{{item.content}}</text> </view>
+
+      </view>
+      <view class="divLine"></view>
+
+    </view>
+
+
+  </van-collapse-item>
+</van-collapse>
+<van-toast id="van-toast" />

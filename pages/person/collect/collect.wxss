@@ -1,0 +1,5 @@
+/* pages/person/collect/collect.wxss */
+.info{
+margin: 20rpx;
+text-align: center;
+}

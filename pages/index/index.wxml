@@ -1,13 +1,31 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<view wx:if="{{isLogin}}">
+<button bindtap="change">换一批</button>
+  <view wx:for="{{bookList}}" wx:for-index="index" wx:for-item='item' wx:key="isbn">
+    <view style="display:flex;">
+      <view class="left">
+        <image src="{{item.coverPath}}" class="coverPath"></image>
+      </view>
+      <view class="right">
+        <view class="bookname">{{item.name}}</view>
+        <view class="">作者：{{item.authorName}}</view>
+        <view class="">出版社：{{item.publishingHouse}}</view>
+        <view class="">出版年：{{item.publishingYear}}</view>
+        <view class="">ISBN:{{item.isbn}}</view>
+        <view class="">网友评分:{{item.score}}</view>
+        <view class="">分类:{{item.labels}}</view>
+        <van-button bindtap="detail" type="primary" data-b-id="{{item.bid}}" style="margin-left:10rpx;margin-top:10rpx;" size="small" >详情</van-button>
+      </view>
+    </view>
+ 
+    <view class="divLine"></view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+
 </view>
+
+<view wx:if="{{!isLogin}}">
+<view style="margin: 20rpx;text-align: center;">你还没有推荐</view>
+<view  style="margin: 20rpx;text-align: center;" >请 <van-button bind:click="goLogin" type="primary"  style="margin-left:10rpx;margin-top:10rpx;" size="small" >登录</van-button>后推荐</view>
+
+</view>
+<van-dialog id="van-dialog" />
+<van-toast id="van-toast" />

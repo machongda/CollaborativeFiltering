@@ -1,0 +1,35 @@
+
+<view wx:if="{{haveCollect}}">
+<van-collapse value="{{ activeNames }}" bind:change="onChangeCollapse">
+  <view wx:for="{{collectBookList}}" wx:for-index="index" wx:for-item='item' wx:key="isbn">
+
+    <view style="display:flex;">
+      <view class="left">
+        <image src="{{item.coverPath}}" class="coverPath"></image>
+      </view>
+      <view class="right">
+        <view class="bookname">{{item.name}}</view>
+        <view class="">作者：{{item.authorName}}</view>
+        <view class="">出版社：{{item.publishingHouse}}</view>
+        <view class="">出版年：{{item.publishingYear}}</view>
+        <view class="">ISBN:{{item.isbn}}</view>
+        <view class="">网友评分:{{item.score}}</view>
+        <view class="">分类:{{item.labels}}</view>
+          <van-button bind:click="delete" type="primary" data-index="{{index}}" style="margin-left:10rpx;margin-top:10rpx;" size="small" >取消收藏</van-button>
+      </view>
+    </view>
+
+    <van-collapse-item title="介绍" name="{{item.isbn}}">
+      <view class="">{{item.briefIntroduction}}</view>
+    </van-collapse-item>
+
+
+    <!-- <van-button bindtap="mark" type="primary" data-index="{{index}}" style="margin-left:550rpx;"  size="small">标记为已读</van-button> -->
+    <view class="divLine"></view>
+  </view>
+</van-collapse></view>
+<view wx:if="{{!haveCollect}}" class="info">
+你还没有收藏！
+</view>
+
+<van-toast id="van-toast" />

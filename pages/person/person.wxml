@@ -1,0 +1,89 @@
+
+<view wx-if="{{isLogin}}">
+  <!-- <navigator url="personInfo/personInfo" class="item">
+    <view class="left">
+      <image class="imageIcon" mode="widthFix " src="/pages/images/personInfo.png"></image>
+    </view>
+    <view class="center">我的信息</view>
+    <view class="right">
+      <image class="imageIcon" mode="center " src="/pages/images/right.png"></image>
+    </view>
+  </navigator> -->
+    <navigator url="interest/interest" class="item">
+    <view class="left">
+      <image class="imageIcon" mode="widthFix " src="/pages/images/tag.png"></image>
+    </view>
+    <view class="center">我的兴趣标签</view>
+    <view class="right">
+      <image class="imageIcon" mode="center " src="/pages/images/right.png"></image>
+    </view>
+  </navigator>
+    <navigator url="reading/reading" class="item">
+    <view class="left">
+      <image class="imageIcon" mode="widthFix " src="/pages/images/reading.png"></image>
+    </view>
+    <view class="center">我的阅读</view>
+    <view class="right">
+      <image class="imageIcon" mode="center " src="/pages/images/right.png"></image>
+    </view>
+  </navigator>
+    <navigator url="collect/collect" class="item">
+    <view class="left">
+      <image class="imageIcon" mode="widthFix " src="/pages/images/collect.png"></image>
+    </view>
+    <view class="center">我的收藏</view>
+    <view class="right">
+      <image class="imageIcon" mode="center " src="/pages/images/right.png"></image>
+    </view>
+  </navigator>
+  <button open-type='contact' class="item">
+    <view class="left">
+      <image class="imageIcon" mode="widthFix " src="/pages/images/customerService.png"></image>
+    </view>
+    <view class="center">客服</view>
+    <view class="right">
+      <image class="imageIcon" mode="center " src="/pages/images/right.png"></image>
+    </view>
+  </button>
+  <button open-type='feedback' class="item">
+    <view class="left">
+      <image class="imageIcon" mode="widthFix " src="/pages/images/feedback.png"></image>
+    </view>
+    <view class="center">反馈</view>
+    <view class="right">
+      <image class="imageIcon" mode="center " src="/pages/images/right.png"></image>
+    </view>
+  </button>
+
+
+</view>
+<view wx-if="{{!isLogin}}">
+ <navigator url="collect/collect" class="item">
+    <view class="left">
+      <image class="imageIcon" mode="widthFix " src="/pages/images/collect.png"></image>
+    </view>
+    <view class="center">我的收藏</view>
+    <view class="right">
+      <image class="imageIcon" mode="center " src="/pages/images/right.png"></image>
+    </view>
+  </navigator>
+  <button open-type='contact' class="item">
+    <view class="left">
+      <image class="imageIcon" mode="widthFix " src="/pages/images/customerService.png"></image>
+    </view>
+    <view class="center">客服</view>
+    <view class="right">
+      <image class="imageIcon" mode="center " src="/pages/images/right.png"></image>
+    </view>
+  </button>
+  <button open-type='feedback' class="item">
+    <view class="left">
+      <image class="imageIcon" mode="widthFix " src="/pages/images/feedback.png"></image>
+    </view>
+    <view class="center">反馈</view>
+    <view class="right">
+      <image class="imageIcon" mode="center " src="/pages/images/right.png"></image>
+    </view>
+  </button>
+<view  style="margin: 20rpx;text-align: center;" >请 <van-button bind:click="goLogin" type="primary"  style="margin-left:10rpx;margin-top:10rpx;" size="small" >登录</van-button>后查看更多</view>
+</view>

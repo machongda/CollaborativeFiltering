@@ -1,0 +1,27 @@
+/* pages/doBooks/doBooks.wxss */
+
+.left{
+width: 40%;
+
+
+}
+.right{
+width: 70%;
+display: flex;
+flex-direction: column;
+margin-right: 40rpx;
+font-size: 30rpx;
+}
+
+.coverPath{
+width:250rpx;
+height: 400rpx;
+margin: 15rpx;
+box-sizing: border-box;
+}
+.bookname{
+font-size: 40rpx;
+text-align: center;
+font-weight:bold;
+}
+

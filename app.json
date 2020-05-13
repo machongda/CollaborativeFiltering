@@ -1,14 +1,56 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/login/login",
+    "pages/person/person",
+    "pages/doLebels/doLebels",
+    "pages/doBooks/doBooks",
+    "pages/detail/detail",
+    "pages/search/search",
+    "pages/person/personInfo/personInfo",
+    "pages/person/interest/interest",
+    "pages/person/interest/change/change",
+    "pages/person/reading/reading",
+    "pages/person/collect/collect",
+    "pages/person/reading/addReadingRecord/addReadingRecord"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "协同过滤图书推荐",
     "navigationBarTextStyle": "black"
   },
-  "style": "v2",
+  "tabBar": {
+    "color": "#000000",
+    "selectedColor": "#0081ff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "我的推荐",
+        "iconPath": "/pages/images/book.png",
+        "selectedIconPath": "/pages/images/book.png"
+      },
+      {
+        "pagePath": "pages/search/search",
+        "text": "搜索",
+        "iconPath": "pages/images/search.png",
+        "selectedIconPath": "pages/images/search.png"
+      },
+      {
+        "pagePath": "pages/person/person",
+        "text": "我的",
+        "iconPath": "pages/images/person.png",
+        "selectedIconPath": "pages/images/person.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "van-button": "/miniprogram_npm/vant-weapp/button/index",
+    "van-toast": "/miniprogram_npm/vant-weapp/toast/index",
+    "van-collapse": "/miniprogram_npm/vant-weapp/collapse/index",
+    "van-collapse-item": "/miniprogram_npm/vant-weapp/collapse-item/index",
+    "van-field": "/miniprogram_npm/vant-weapp/field/index",
+    "van-dialog": "/miniprogram_npm/vant-weapp/dialog/index"
+  },
   "sitemapLocation": "sitemap.json"
 }

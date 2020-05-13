@@ -1,0 +1,6 @@
+<!--pages/person/interest/interest.wxml-->
+<view style="margin:15rpx">
+<view wx:for="{{lebels}}" wx:for-index="ind" wx:for-item='value'wx:key="" style="display:inline">
+   <button class="select,lebelButton" >{{value}} </button> 
+</view>
+<van-button bindtap="change" type="primary" style="margin:550rpx;"  size="small">修改</van-button></view>

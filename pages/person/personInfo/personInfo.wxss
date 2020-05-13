@@ -1,0 +1,31 @@
+/* pages/person/personInfo/personInfo.wxss */
+
+page{
+background-color: rgb(245, 245, 245);
+border-radius: 10rpx;
+
+
+}
+
+
+
+.item{
+height: 75rpx;
+width: 100%;
+display: flex;
+flex-direction: row;
+font-size: 32rpx;
+}
+
+.item .left{
+height: 100%;
+width: 30%;
+margin-left: 10%;
+line-height: 75rpx;
+}
+.item .right{
+height: 100%;
+width: 60%;
+line-height: 75rpx;
+color:rgb(80, 80, 80);
+}

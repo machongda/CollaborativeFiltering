@@ -1,0 +1,41 @@
+<van-collapse value="{{ activeNames }}" bind:change="onChange">
+  <van-collapse-item title="文学" name="1">
+   <view wx:for="{{literature}}" wx:for-index="ind" wx:for-item='value'wx:key="" style="display:inline">
+
+   <button class="{{literatureFlag[ind]==true?'select':''}},lebelButton" data-index="{{ind}}" data-name="literature" bindtap="addSelect">{{value}} </button> 
+</view>
+  </van-collapse-item>
+  <van-collapse-item title="流行 " name="2">
+   <view wx:for="{{popular}}" wx:for-index="ind" wx:for-item='value'wx:key="" style="display:inline">
+
+   <button class="{{popularFlag[ind]==true?'select':''}},lebelButton" data-index="{{ind}}" data-name="popular" bindtap="addSelect">{{value}} </button> 
+</view>
+  </van-collapse-item>
+   
+    <van-collapse-item title="文化 " name="3">
+   <view wx:for="{{culture}}" wx:for-index="ind" wx:for-item='value'wx:key="" style="display:inline">
+
+   <button class="{{cultureFlag[ind]==true?'select':''}},lebelButton" data-index="{{ind}}" data-name="culture" bindtap="addSelect">{{value}} </button> 
+</view>
+  </van-collapse-item>
+    <van-collapse-item title="生活 " name="4">
+   <view wx:for="{{life}}" wx:for-index="ind" wx:for-item='value'wx:key="" style="display:inline">
+
+   <button class="{{lifeFlag[ind]==true?'select':''}},lebelButton" data-index="{{ind}}" data-name="life" bindtap="addSelect">{{value}} </button> 
+</view>
+  </van-collapse-item>
+    <van-collapse-item title="经管 " name="5">
+   <view wx:for="{{manage}}" wx:for-index="ind" wx:for-item='value'wx:key="" style="display:inline">
+
+   <button class="{{manageFlag[ind]==true?'select':''}},lebelButton" data-index="{{ind}}" data-name="manage" bindtap="addSelect">{{value}} </button> 
+</view>
+  </van-collapse-item>
+  <van-collapse-item title="科技" name="6" >
+   <view wx:for="{{technology}}" wx:for-index="ind" wx:for-item='value'wx:key="" style="display:inline">
+
+   <button class="{{technologyFlag[ind]==true?'select':''}},lebelButton" data-index="{{ind}}" data-name="technology" bindtap="addSelect">{{value}} </button> 
+</view>
+  </van-collapse-item>
+</van-collapse>
+<van-toast id="van-toast" />
+<van-button bindtap="next" type="primary" style="margin:550rpx;"  size="small">下一步</van-button>

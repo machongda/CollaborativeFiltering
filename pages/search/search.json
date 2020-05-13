@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "van-search": "/miniprogram_npm/vant-weapp/search/index",
+   "van-dialog": "/miniprogram_npm/vant-weapp/dialog/index",
+    "van-rate": "/miniprogram_npm/vant-weapp/rate/index"
+  },
+  "navigationBarTitleText": "搜索书籍"
+}

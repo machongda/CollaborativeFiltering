@@ -1,0 +1,11 @@
+<!--pages/person/personInfo/personInfo.wxml-->
+<view class="container">
+  <view class="item">
+    <view class="left">昵称</view>
+    <view class="right">{{userInfo.nickName||userInfo.nickname}}</view>
+  </view>
+  <view class="item">
+    <view class="left">性别</view>
+    <view class="right">{{userInfo.gender||userInfo.sex}}</view>
+  </view>
+  </view>
