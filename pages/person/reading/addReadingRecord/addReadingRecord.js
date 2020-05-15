@@ -29,7 +29,6 @@ Page({
     this.setData({ show: true });
   },
 end(){
-  app.globalData.refreshFlags[0] = true;
   wx.redirectTo({
     url: '/pages/person/reading/reading',
   })
@@ -72,9 +71,12 @@ end(){
       // uId: app.globalData.userInfo.openid
 
     }).then((res) => {
+     
       this.setData({
         ['maskFlag[' + this.data.index + ']']: true,
       });
+      this.data.readingRecordList.add(this.data.bId);
+      app.globalData.refreshFlags[1] = true;
       common.Toast.clear();
       common.Toast("标记已读成功！");
     }, // 成功
@@ -123,7 +125,7 @@ end(){
 
 
   onClick() {
-
+   
     if (this.data.value == "")
       return;
     common.Toast.loading({
@@ -146,6 +148,24 @@ end(){
             ['maskFlag[' + i + ']']: true,
           });
       }
+      var maskFlag = [];
+      for (var i = 0; i < 50; i++) {
+        maskFlag[i] = false;
+      }
+      this.setData({
+        maskFlag: maskFlag,
+      });
+
+      if (res.data.searchBookResult.length == 0) {
+        common.Toast.clear();
+        common.Dialog.alert({
+          title: '提示',
+          message: "未找到书籍，请更换关键词后重试！",
+        }).then(() => {
+          // on close
+        });
+        return;
+      }
       this.setData({
         searchBookResult: res.data.searchBookResult,
       });
@@ -164,18 +184,15 @@ end(){
 
           showCancel: false,
 
-          confirmText: '返回',
+          confirmText: '确认',
 
           success: function (res) {
+            // if (res.confirm) {
+            //   wx.navigateBack({
+            //     delta: 1
 
-            // 用户没有授权成功，不需要改变 isHide 的值
-
-            if (res.confirm) {
-              wx.navigateBack({
-                delta: 1
-
-              })
-            }
+            //   })
+            // }
 
           }
 

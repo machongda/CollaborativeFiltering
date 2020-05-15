@@ -2,7 +2,29 @@
 <van-search value="{{ value }}" label="" placeholder="请输入书籍名或者作者名" use-action-slot bind:change="onChange" bind:search="onSearch">
   <view slot="action" bind:tap="onClick">搜索</view>
 </van-search>
+<van-dialog bind:confirm="markConfirm" use-slot title="{{bookName}}" show="{{ show }}" show-cancel-button confirm-button-open-type="getUserInfo" bind:close="onClose" bind:getuserinfo="getUserInfo">
+  <view style="width:600rpx;height:200rpx;display:flex;flex-direction:column;padding:10rpx;">
+    <view style="display:flex;flex-direction: row;"> 打个分吧
+      <van-rate value="{{ rateValue }}" style="margin-left:20rpx;" bind:change="onChangeRate" />
+    </view>
 
+  </view>
+</van-dialog>
+<!-- <van-overlay show="{{ show }}" bind:click="onClickHide" />
+<van-overlay show="{{ !show }}" bind:click="onClose">
+  <view style="width:600rpx;height:800rpx;display:flex;flex-direction: column;">
+    <view style="text-align: center;font-size: 40rpx;text-align: center;font-weight:bold;">{{bookName}}</view>
+    <view>
+    打个分吧
+      <van-rate value="{{ rateValue }}" bind:change="onChangeRate" />
+    </view>
+
+  </view>
+</van-overlay> -->
+
+<view style="display: flex;">
+  <van-button type="primary" bindtap="clear" size="small" style="margin:0 auto">清空搜索结果</van-button>
+</view>
 
 
 <van-collapse value="{{ activeNames }}" bind:change="onChangeCollapse">
@@ -20,7 +42,10 @@
         <view class="">ISBN:{{item.isbn}}</view>
         <view class="">网友评分:{{item.score}}</view>
         <view class="">分类:{{item.labels}}</view>
-        <van-button bind:click="detail" type="primary" data-index="{{index}}" data-b-id="{{item.bid}}" style="margin-left:10rpx;margin-top:10rpx;" size="small" >详情</van-button>
+        <view><van-button bind:click="detail" type="primary" data-index="{{index}}" data-b-id="{{item.bid}}"  style="margin-left:10rpx;margin-top:10rpx;display: inline-block" size="small" >详情</van-button>
+          <van-button wx-if="{{isLogin}}"bind:click="mark" type="primary" data-index="{{index}}" data-b-id="{{item.bid}}"  style="margin-left:100rpx;margin-top:10rpx;display: inline-block" size="small" disabled="{{maskFlag[index]}}">标记已读</van-button>
+          </view>
+        
       </view>
     </view>
 
@@ -35,4 +60,5 @@
     <view class="divLine"></view>
   </view>
 </van-collapse>
+ <van-dialog id="van-dialog" />
 <van-toast id="van-toast" />

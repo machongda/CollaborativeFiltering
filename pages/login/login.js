@@ -154,6 +154,7 @@ Page({
               success: function () {
               }
             })
+            app.globalData.refreshFlags[0] = true;
             console.log(res.data);
             wx.showToast({
               title: '使用微信登录成功!!!',

@@ -5,8 +5,8 @@ async function request(url, data) {
   // console.log("vis: " + url);
   return await new Promise((resolve, reject) => {
     wx.request({
-     url:"https://liuhuaqiang.cn/recommend/"+url,
-      //url: "http://127.0.0.1:8080/recommend/" + url,
+     //url:"https://liuhuaqiang.cn/recommend/"+url,
+      url: "http://127.0.0.1:8080/recommend/" + url,
       data,
       async success(res) {
         // console.log(res);
